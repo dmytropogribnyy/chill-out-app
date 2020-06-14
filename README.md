@@ -1,2 +1,2 @@
-# chill-out-app
-The breathing app for relaxation
+## chill-out-application
+# The breathing app for relaxation.
