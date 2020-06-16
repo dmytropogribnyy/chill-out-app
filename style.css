@@ -72,7 +72,7 @@ body {
 	height: 190px;
 	animation: rotate 8s linear forwards infinite;
 	transform-origin: bottom center;
-	animation-play-state: paused;
+	/* animation-play-state: paused; */
 }
 
 @keyframes rotate {
