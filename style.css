@@ -20,7 +20,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: auto;
+	margin: auto auto 20rem auto;
 	height: 300px;
 	width: 300px;
 	position: relative;
@@ -72,6 +72,7 @@ body {
 	height: 190px;
 	animation: rotate 8s linear forwards infinite;
 	transform-origin: bottom center;
+	animation-play-state: paused;
 }
 
 @keyframes rotate {
@@ -110,4 +111,27 @@ body {
 	to {
 		transform: scale(1);
 	}
+}
+
+h1 {
+	font-size: 3rem;
+	margin-top: 3rem;
+}
+
+.btn-group {
+	display: flex;
+	align-items: center;
+	margin-top: 9rem;
+}
+
+.btn-primary {
+	font-weight: 600;
+	border-width: 2px;
+	font-size: large;
+}
+
+.divider {
+	width: 7rem;
+	height: auto;
+	display: inline-block;
 }
