@@ -1,5 +1,5 @@
 const container = document.getElementById("container");
-const pointer_container = document.getElementById("pointer-container");
+const pointerContainer = document.getElementById("pointer-container");
 const text = document.getElementById("text");
 const totalTime = 8000;
 const startbtn = document.querySelector("startbtn");
@@ -10,30 +10,35 @@ const holdTime = totalTime / 5;
 
 // breathAnimation();
 // setInterval(breathAnimation, totalTime);
-pointer_container.style.animationPlayState = "paused";
+pointerContainer.style.animationPlayState = "paused";
 
 function animationStart() {
-	pointer_container.style.animationPlayState = "running";
+	pointerContainer.style.animationPlayState = "running";
+	breathAnimation();
 }
 
 function animationStop() {
-	pointer_container.style.animationPlayState = "paused";
+	pointerContainer.style.animationPlayState = "paused";
+	pointerContainer.style.animationFillMode = "none";
+	clearInterval(breathAnimation);
 }
 
 startbtn.addEventListener("click", animationStart);
 stopbtn.addEventListener("click", animationStop);
 
 function breathAnimation() {
-	text.innerText = "Breathe In";
-	container.className = "container grow";
+	if (animationStart) {
+		text.innerText = "Breathe In";
+		container.className = "container grow";
 
-	setTimeout(() => {
-		text.innerText = "Hold";
 		setTimeout(() => {
-			text.innerText = "Breathe Out";
-			container.className = "container shrink";
-		}, holdTime);
-	}, breathTime);
+			text.innerText = "Hold";
+			setTimeout(() => {
+				text.innerText = "Breathe Out";
+				container.className = "container shrink";
+			}, holdTime);
+		}, breathTime);
+	} else return;
 }
-
 setInterval(breathAnimation, totalTime);
+setTimeout(breathAnimation);
