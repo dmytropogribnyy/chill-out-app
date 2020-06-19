@@ -9,22 +9,24 @@ const breathTime = (totalTime / 5) * 2;
 const holdTime = totalTime / 5;
 
 // breathAnimation();
-// setInterval(breathAnimation, totalTime);
 pointerContainer.style.animationPlayState = "paused";
-
-function animationStart() {
-	pointerContainer.style.animationPlayState = "running";
-	breathAnimation();
-}
-
-function animationStop() {
-	pointerContainer.style.animationPlayState = "paused";
-	pointerContainer.style.animationFillMode = "none";
-	clearInterval(breathAnimation);
-}
 
 startbtn.addEventListener("click", animationStart);
 stopbtn.addEventListener("click", animationStop);
+
+function animationStart() {
+	// pointerContainer.style.animationPlayState = "running";
+	breathAnimation();
+	setTimeout(() => {
+		pointerContainer.style.animation = "";
+	}, 150);
+}
+
+function animationStop() {
+	// pointerContainer.style.animationPlayState = "paused";
+	pointerContainer.style.animation = "none";
+	clearInterval(breathAnimation);
+}
 
 function breathAnimation() {
 	if (animationStart) {
@@ -38,7 +40,8 @@ function breathAnimation() {
 				container.className = "container shrink";
 			}, holdTime);
 		}, breathTime);
-	} else return;
+	} else {
+		return false;
+	}
+	setInterval(breathAnimation, totalTime);
 }
-setInterval(breathAnimation, totalTime);
-setTimeout(breathAnimation);
