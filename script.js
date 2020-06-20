@@ -8,6 +8,12 @@ const stopbtn = document.querySelector("#stopbtn");
 const breathTime = (totalTime / 5) * 2;
 const holdTime = totalTime / 5;
 
+let intervalId, timeoutId;
+
+intervalId = setInterval(breathAnimation, totalTime);
+
+timeoutId = setTimeout(breathAnimation, totalTime);
+
 pointerContainer.style.animationPlayState = "paused";
 
 startbtn.addEventListener("click", animationStart);
@@ -18,13 +24,15 @@ function animationStart() {
 	container.style.animation = "";
 	pointerContainer.style.animation = "";
 	breathAnimation();
-	setInterval(breathAnimation, totalTime);
+	intervalId();
+	timeoutId();
 }
 
 function animationStop() {
 	container.style.animation = "none";
 	pointerContainer.style.animation = "none";
-	clearInterval(breathAnimation);
+	clearInterval(intervalId);
+	clearTimeout(timeoutId);
 }
 
 function breathAnimation() {
