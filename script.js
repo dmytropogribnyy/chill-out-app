@@ -14,8 +14,8 @@ startbtn.addEventListener("click", animationStart);
 stopbtn.addEventListener("click", animationStop);
 
 var breath;
-var hold_timeout;
-var breath_out;
+var holdTimeout;
+var breathOut;
 
 function animationStart() {
 	breathAnimation();
@@ -30,8 +30,8 @@ function animationStop() {
 	pointerContainer.style.animation = "none";
 	container.className = "container";
 	clearInterval(breath);
-	clearTimeout(hold_timeout);
-	clearTimeout(breath_out);
+	clearTimeout(holdTimeout);
+	clearTimeout(breathOut);
 	text.innerText = "";
 }
 
@@ -40,9 +40,9 @@ function breathAnimation() {
 		text.innerText = "Breathe In";
 		container.className = "container grow";
 
-		hold_timeout = setTimeout(() => {
+		holdTimeout = setTimeout(() => {
 			text.innerText = "Hold";
-			breath_out = setTimeout(() => {
+			breathOut = setTimeout(() => {
 				text.innerText = "Breathe Out";
 				container.className = "container shrink";
 			}, holdTime);
