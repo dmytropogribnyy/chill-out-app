@@ -4,7 +4,8 @@ The breathing app for relaxation
 
 ## Project Specifications
 
-- Create circle and gradient circle with CSS
-- Create and animate pointer (Small circle)
-- Create grow and shrink animations
-- Add JavaScript to create the breath animation effect
+- Created circle and gradient circle with CSS;
+- Created an animated pointer (Small circle);
+- Created grow and shrink animations;
+- Added JavaScript to create the breath animation effect;
+- Added Start & Stop Buttons to activate & deactivate animation.
